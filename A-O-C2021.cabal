@@ -1,0 +1,61 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           A-O-C2021
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/dirceuBarquette/A-O-C2021#readme>
+homepage:       https://github.com/dirceuBarquette/A-O-C2021#readme
+bug-reports:    https://github.com/dirceuBarquette/A-O-C2021/issues
+author:         Dirceu Barquette
+maintainer:     dirceu.barquette@gmail.com
+copyright:      2021 Dirceu Barquette
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/dirceuBarquette/A-O-C2021
+
+library
+  exposed-modules:
+      Day1
+      Lib
+  other-modules:
+      Paths_A_O_C2021
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable A-O-C2021-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_A_O_C2021
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      A-O-C2021
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite A-O-C2021-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_A_O_C2021
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      A-O-C2021
+    , base >=4.7 && <5
+  default-language: Haskell2010
