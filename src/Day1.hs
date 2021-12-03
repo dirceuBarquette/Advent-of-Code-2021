@@ -1,11 +1,9 @@
-module Day1 where
+module Day1
+   ( part1
+   , part2
+   ) where
 
-getRecords :: FilePath -> IO [Int]
-getRecords path = do
-   contents <- readFile path
-   let lns =  lines contents
-   let toInt = map (\x->read x::Int) lns
-   return toInt
+import LibAoC21 ( getRecords )
 
 eval arr@(x:xs) = go (x, 0) arr
    where
@@ -21,10 +19,17 @@ get3Mes = go []
       go acc [] = acc
       go acc xs = go (acc ++ [(sum . take 3) xs]) (tail xs)
 
-part2 path = do
-   r <- getRecords path
-   return $ eval $ get3Mes r
+--records :: FilePath -> IO [String]
+--records = getRecords 
 
-part1 path = do
-   r <-  getRecords path
-   return $ eval r
+part2 :: IO Int
+part2 = do
+   r <- getRecords "data/input-day1.txt"
+   let toInt = map (\x->read x::Int) r
+   return $ eval $ get3Mes toInt
+
+part1 :: IO Int
+part1 = do
+   r <-  getRecords "data/input-day1.txt"
+   let toInt = map (\x->read x::Int) r
+   return $ eval toInt
